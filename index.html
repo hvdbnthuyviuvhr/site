@@ -1,525 +1,115 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Минимаркет — Качественные продукты</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
-            min-height: 100vh;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-        
-        .logo h1 {
-            font-size: 28px;
-            font-weight: 700;
-        }
-        
-        .contacts {
-            text-align: right;
-        }
-        
-        .contacts p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        
-        .hero {
-            padding: 60px 20px;
-            text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h2 {
-            font-size: 42px;
-            color: #28a745;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 20px;
-            color: #495057;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-        
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-        
-        .feature {
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-        
-        .info-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .info-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-        
-        .info-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .info-card h3 {
-            color: #28a745;
-            font-size: 24px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .info-card p {
-            color: #495057;
-            line-height: 1.6;
-            font-size: 16px;
-        }
-        
-        .info-card .address {
-            font-size: 18px;
-            font-weight: 500;
-            color: #212529;
-        }
-        
-        .info-card .metro {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #ff3b30;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-top: 10px;
-        }
-        
-        .reviews-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #ffeb3b 0%, #ffc107 100%);
-            color: #212529;
-            padding: 15px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 700;
-            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-top: 20px;
-        }
-        
-        .reviews-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 25px rgba(255, 193, 7, 0.6);
-        }
-        
-        .products-section {
-            background: white;
-            padding: 60px 20px;
-        }
-        
-        .products-section h2 {
-            text-align: center;
-            font-size: 36px;
-            color: #212529;
-            margin-bottom: 40px;
-        }
-        
-        .products-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-        }
-        
-        .product-card {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .product-icon {
-            font-size: 50px;
-            margin-bottom: 15px;
-        }
-        
-        .product-card h4 {
-            color: #495057;
-            font-size: 16px;
-        }
-        
-        footer {
-            background: #212529;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-        
-        footer p {
-            opacity: 0.8;
-            font-size: 14px;
-        }
-        
-        @media (max-width: 600px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .contacts {
-                text-align: center;
-            }
-            
-            .hero h2 {
-                font-size: 28px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .features {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Био Альберта</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-/* ===== DARK MODERN DESIGN ===== */
-
-body {
-    background: #0f1115;
-    color: #eaeaea;
-}
-
-/* header */
-header {
-    background: linear-gradient(135deg, #111, #1f1f1f);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.6);
-}
-
-/* hero */
-.hero h2 {
-    color: #4ade80;
-}
-.hero p {
-    color: #cfcfcf;
-}
-
-/* cards */
-.info-card, .product-card {
-    background: #1a1d23;
-    border: 1px solid #2a2f36;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.6);
-}
-
-/* hover */
-.product-card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.9);
-}
-
-/* section title */
-.products-section {
-    background: #0f1115;
-}
-.products-section h2 {
-    color: #ffffff;
-}
-
-/* PRODUCT BUTTON STYLE (вернули кнопочный стиль) */
-.product-card {
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.product-card:hover {
-    background: #222831;
-}
-
-/* glowing button */
-.reviews-btn {
-    background: linear-gradient(135deg, #4ade80, #22c55e);
-    color: black;
-    box-shadow: 0 0 15px rgba(74, 222, 128, 0.6);
-}
-.reviews-btn:hover {
-    transform: scale(1.07);
-    box-shadow: 0 0 30px rgba(74, 222, 128, 1);
-}
-
-/* footer */
-footer {
-    background: #000;
-}
-
-/* text tweaks */
-.product-card h4 {
-    color: #eaeaea;
-}
-.info-card p {
-    color: #cfcfcf;
-}
-</style>
-
-
-<style>
-/* brighter address + info */
-.info-card .address {
-    color: #ffffff !important;
-    font-weight: 600;
-}
-
-.info-card p {
-    color: #e5e7eb !important;
-}
-
-.info-card h3 {
-    color: #4ade80 !important;
-}
-</style>
-
-
-<style>
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-}
-
-.product-card {
-    padding: 25px;
-    border-radius: 18px;
-    transition: all 0.35s ease;
-}
-
-.product-card h4 {
-    margin-top: 10px;
-    font-size: 17px;
-}
-</style>
-
-
-<style>
-.products-grid{
-    max-width:1200px;
-    margin:0 auto;
-    display:grid !important;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr)) !important;
-    gap:24px !important;
-    align-items:stretch;
-}
-.product-card{
-    width:100%;
-    min-height:190px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding:28px 20px !important;
-    border-radius:22px;
-    box-sizing:border-box;
-}
-.product-icon{
-    margin-bottom:18px;
-}
-.product-card h4{
-    margin:0;
-    text-align:center;
-    line-height:1.25;
-}
-@media (max-width: 600px){
-    .products-grid{
-        grid-template-columns:1fr !important;
-        gap:18px !important;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
     }
-    .product-card{
-        min-height:170px;
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at top, #1a1a2e, #0f3460, #000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      overflow: hidden;
     }
-}
-</style>
 
+    .glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: #ff4b2b;
+      filter: blur(200px);
+      opacity: 0.4;
+      animation: move 8s infinite alternate;
+    }
 
-<style>
-.product-card{
-    position:relative;
-    z-index:1;
-}
-.product-card + .product-card{
-    margin-top:0;
-}
-</style>
+    @keyframes move {
+      from { transform: translate(-100px, -100px); }
+      to { transform: translate(100px, 100px); }
+    }
 
+    .container {
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 40px;
+      width: 360px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(0,0,0,0.6);
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      font-size: 30px;
+    }
+
+    .link {
+      display: block;
+      text-decoration: none;
+      margin: 15px 0;
+      padding: 15px;
+      border-radius: 14px;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      transition: 0.25s;
+    }
+
+    .link:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(255,75,43,0.8);
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+  </style>
 </head>
-<body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <div class="logo-icon">🛒</div>
-                <h1>Минимаркет</h1>
-            </div>
-            <div class="contacts">
-                <p>⏰ Ежедневно с 09:00 до 23:00</p>
-            </div>
-        </div>
-    </header>
-    
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Свежие продукты каждый день</h2>
-            <p>Мы предлагаем только качественные продукты от проверенных поставщиков. Свежие овощи и фрукты, молочные продукты, выпечка и всё необходимое для вашего стола.</p>
-            
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">🥬</div>
-                    <p>Свежие овощи и фрукты</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🥛</div>
-                    <p>Молочные продукты</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🍞</div>
-                    <p>Свежая выпечка</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💯</div>
-                    <p>Качество гарантировано</p>
-                </div>
-</div>
-    </section>
-    
-    <section class="info-section">
-        <div class="info-card">
-            <h3>📍 Наш адрес</h3>
-            <p class="address">г. Москва, Кустанайская ул., 10, корп. 3</p>
-            <span class="metro">🚇 Метро Красногвардейская</span>
-        </div>
-        
-        <div class="info-card">
-            <h3>🕒 Часы работы</h3>
-            <p>Понедельник — Пятница: 9:00 — 23:00<br>
-            Суббота — Воскресенье: 09:00 — 23:00</p>
-        </div>
-    
-    <section class="products-section">
-        <h2>Что мы предлагаем</h2>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-icon">🥩</div>
-                <h4>Мясо и птица</h4>
-            </div>
-            <div class="product-card">
-                <div class="product-icon">🌭</div>
-                <h4>Колбаса и мясные изделия</h4>
-            </div>
 
-            <div class="product-card">
-                <div class="product-icon">🥦</div>
-                <h4>Овощи и фрукты</h4>
-            </div>
-            <div class="product-card">
-                <div class="product-icon">🧀</div>
-                <h4>Молочные продукты</h4>
-            </div>
-            <div class="product-card">
-                <div class="product-icon">🍞</div>
-                <h4>Выпечка</h4>
-            </div>
-            <div class="product-card">
-                <div class="product-icon">🍷</div>
-                <h4>Напитки</h4>
-            </div>
-            <div class="product-card">
-                <div class="product-icon">🍰</div>
-                <h4>Сладости и десерты</h4>
-            </div>
-        </div>
-    </section>
-    
-    <section style="text-align: center; padding: 40px 20px;">
-        <a href="https://yandex.by/profile/139350024025?lang=ru" target="_blank" class="reviews-btn">
-             Отзывы на Яндекс Картах
-        </a>
-    </section>
-    
-    <footer>
-        <p>© 2026 Минимаркет.</p>
-        <p>Качественные продукты для вашего стола</p>
-    </footer>
+<body>
+
+  <div class="glow"></div>
+
+  <div class="container">
+    <h1>Био Альберта</h1>
+
+    <a class="link" href="https://funpay.com/users/9225164/" target="_blank">
+      🔗 Ссылка на мой профиль Фанпей
+    </a>
+
+    <a class="link" href="https://t.me/duxov_txa777" target="_blank">
+      📩 Мой телеграмм юзернейм
+    </a>
+
+    <div class="footer">powered by vibe 😎</div>
+  </div>
+
 </body>
 </html>
